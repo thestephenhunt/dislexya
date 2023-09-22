@@ -1,0 +1,19 @@
+{
+    "name": "Dislexya",
+    "version": "1.0.0",
+    "description": "A reading extension to help dyslexic readers",
+    "manifest_version": 3,
+    "author": "Stephen Hunt",
+    "action":{
+        "default_popup": "index.html",
+        "default_title": "Dislexya"
+    },
+    "content_scripts": [
+        {
+            "js": ["scripts/reader.js"],
+            "matches": [
+                "https://*/*"
+            ]
+        }
+    ]
+}

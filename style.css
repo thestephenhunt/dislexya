@@ -1,0 +1,39 @@
+html {
+    width: 300px;
+}
+
+button {  
+    color: white;
+    border-radius: 3rem;
+    padding: 0;
+    display: block;
+    background-size: 1.5rem;
+    background-position: 85% center;
+    background-repeat: no-repeat;
+    width: 7rem;
+    height: 3rem;
+
+    & span {
+        padding: 0.75rem;
+        border-radius: 50%;
+        position: relative;
+    }
+}
+
+[aria-checked] {
+    position: relative;
+}
+
+[role="switch"][aria-checked="true"] :first-child,
+[role="switch"][aria-checked="false"] :last-child {
+  background: #000;
+  color: #fff;
+}
+
+[role="switch"][aria-checked="false"] :first-child,
+[role="switch"][aria-checked="true"] :last-child {
+  color: #000;
+}
+
+  
+  
