@@ -5,15 +5,10 @@
     "manifest_version": 3,
     "author": "Stephen Hunt",
     "action":{
-        "default_popup": "index.html",
         "default_title": "Dislexya"
     },
-    "content_scripts": [
-        {
-            "js": ["scripts/reader.js"],
-            "matches": [
-                "https://*/*"
-            ]
-        }
-    ]
+    "permissions": ["scripting", "activeTab"],
+    "background": {
+        "service_worker": "background.js"
+    }
 }

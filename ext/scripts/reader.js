@@ -1,6 +1,9 @@
-export function modText(paragraph) {
-    console.log('MOD')
+const paragraph = document.querySelectorAll("p, dd");
+const allText = []
+
+function modText(paragraph, index) {
     const text = paragraph.innerHTML;
+    allText[index] = {"original": text, "converted": ''}
     const words = []
     const convertedWords = []
     let inTag = false;
@@ -14,7 +17,7 @@ export function modText(paragraph) {
             case '>':
                 inTag = !inTag
                 word += c
-                // words.push(word)
+                words.push(word)
                 word = ''
                 break
             case ' ':
@@ -33,11 +36,16 @@ export function modText(paragraph) {
     words.forEach((word) => {
         const front = word.substring(0, 1)
         const end = word.substring(1, word.length)
-        word = '<b>' + front + '</b>' + end
+        if (front != '<') {
+            word = '<b>' + front + '</b>' + end
+        }
         convertedWords.push(word)
     })
+
     paragraph.innerHTML = convertedWords.join(' ')
-    console.log('JOINED')
+    allText[index].converted = convertedWords.join(' ')
 }
 
-export default modText
+paragraph.forEach((para, index) => {
+    modText(para, index)
+})
